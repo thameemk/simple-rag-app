@@ -1,0 +1,18 @@
+[project]
+name = "simple-rag-app"
+version = "0.1.0"
+description = "A simple RAG API built with FastAPI"
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "sentence-transformers",
+    "numpy",
+    "openai",
+    "python-dotenv",
+]
+
+[dependency-groups]
+lint = [
+    "ruff>=0.16.0",
+]

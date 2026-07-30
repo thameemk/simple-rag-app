@@ -1,0 +1,7 @@
+FastAPI is a modern web framework for Python.
+
+RAG stands for Retrieval-Augmented Generation.
+
+Embeddings convert text into vectors that machines can compare.
+
+Vector databases help perform semantic search.
