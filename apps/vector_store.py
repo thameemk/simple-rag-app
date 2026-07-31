@@ -1,13 +1,15 @@
+from pathlib import Path
+
 import numpy as np
 from sentence_transformers import SentenceTransformer
 
-DOCUMENTS_FILE = "documents.txt"
+DOCUMENTS_FILE = Path(__file__).parent / "documents.txt"
 EMBEDDING_MODEL = "all-MiniLM-L6-v2"
 
 model = SentenceTransformer(EMBEDDING_MODEL)
 
 
-def load_documents(path: str = DOCUMENTS_FILE) -> list[str]:
+def load_documents(path: Path = DOCUMENTS_FILE) -> list[str]:
     with open(path, "r", encoding="utf-8") as f:
         text = f.read()
     return [chunk.strip() for chunk in text.split("\n\n") if chunk.strip()]
