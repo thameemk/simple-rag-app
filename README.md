@@ -64,3 +64,12 @@ Change `LLM_PROVIDER` in `.env` to `openai` or `huggingface` and restart the ser
 ## Adding your own documents
 
 Edit `apps/documents.txt`. Separate each chunk/document with a blank line.
+
+## Running tests
+
+```bash
+uv sync --all-groups
+uv run pytest
+```
+
+Tests don't call any real LLM API — the provider clients are mocked, so no API key or network access is needed to run them.

@@ -16,3 +16,11 @@ dependencies = [
 lint = [
     "ruff>=0.16.0",
 ]
+test = [
+    "pytest>=8.0.0",
+    "httpx",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["apps"]
+testpaths = ["tests"]
