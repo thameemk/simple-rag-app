@@ -1,11 +1,6 @@
-import os
+from clients.chat import get_chat_client
 
-from dotenv import load_dotenv
-from openai import OpenAI
-
-load_dotenv()
-
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+client = get_chat_client()
 
 
 def build_prompt(context: str, question: str) -> str:
@@ -20,8 +15,4 @@ def build_prompt(context: str, question: str) -> str:
 
 def generate_answer(context: str, question: str) -> str:
     prompt = build_prompt(context, question)
-    response = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[{"role": "user", "content": prompt}],
-    )
-    return response.choices[0].message.content.strip()
+    return client.complete([{"role": "user", "content": prompt}])
